@@ -1,0 +1,15 @@
+[Unit]
+Description=Update proxy-pool configuration from subscriptions
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/proxy-pool/update-subscription.sh
+StandardOutput=journal
+StandardError=journal
+# 避免文件变更后立即触发（给编辑器写完的时间）
+ExecStartPre=/bin/sleep 2
+
+[Install]
+WantedBy=multi-user.target

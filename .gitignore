@@ -1,0 +1,6 @@
+# 运行时生成的文件
+*.pyc
+__pycache__/
+
+# 用户订阅配置（包含私有 URL，不应提交）
+# 仓库中只保留 subscriptions.conf 作为模板示例

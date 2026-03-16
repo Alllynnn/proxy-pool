@@ -1,0 +1,10 @@
+[Unit]
+Description=Watch proxy-pool subscription config for changes
+Documentation=man:systemd.path(5)
+
+[Path]
+PathModified=/opt/proxy-pool/subscriptions.conf
+Unit=proxy-pool-update.service
+
+[Install]
+WantedBy=multi-user.target
