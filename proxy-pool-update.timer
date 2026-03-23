@@ -1,0 +1,15 @@
+[Unit]
+Description=Periodically update proxy-pool subscriptions
+Documentation=man:systemd.timer(5)
+
+[Timer]
+# 每6小时执行一次
+OnCalendar=*-*-* 00/6:00:00
+# 启动后5分钟先执行一次
+OnBootSec=5min
+# 随机延迟0~10分钟，避免多台机器同时请求
+RandomizedDelaySec=600
+Persistent=true
+
+[Install]
+WantedBy=timers.target
