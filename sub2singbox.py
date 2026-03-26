@@ -507,7 +507,7 @@ def parse_uri_list(content: str) -> list:
 def parse_subscription(content: str) -> list:
     """自动检测订阅格式（Clash YAML / Base64 URI）并解析"""
     stripped = content.strip()
-    if stripped.startswith("---") or stripped.startswith("port:") or "proxies:" in stripped[:500]:
+    if stripped.startswith("---") or stripped.startswith("port:") or "proxies:" in stripped[:5000]:
         print("  → 检测到 Clash YAML 格式")
         return parse_clash_yaml(content)
     else:
